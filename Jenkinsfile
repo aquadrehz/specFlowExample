@@ -1,4 +1,5 @@
-parallel {
+parallel (
+agent any
     "Unit Test001": {
         ws("workspace/${JOB_NAME}") {
             def globalVariable;
@@ -56,5 +57,5 @@ parallel {
             }
         
     }
-}
+)
 
