@@ -74,6 +74,11 @@
   <ItemGroup>
     <Compile Include="BowlingSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreCalculation001.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScoreCalculation001.feature</DependentUpon>
+    </Compile>
     <Compile Include="ScoreCalculation1.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +98,10 @@
     <None Include="ScoreCalculation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ScoreCalculation1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="ScoreCalculation001.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ScoreCalculation001.feature.cs</LastGenOutput>
     </None>
     <None Include="ScoreCalculationAlternatives.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
