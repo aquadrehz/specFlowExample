@@ -120,6 +120,7 @@
       <DependentUpon>App.config</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
     </None>
+    <None Include="App.UnitTest002.config" />
     <None Include="bin\Debug\Bowling.SpecFlow.vshost.exe.config" />
     <None Include="bin\Debug\Bowling.SpecFlow.vshost.exe.manifest" />
     <None Include="packages.config" />
