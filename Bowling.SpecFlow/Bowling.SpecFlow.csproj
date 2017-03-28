@@ -87,6 +87,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="App.UnitTest001.config" />
+    <None Include="App.UnitTest002.config" />
     <None Include="bin\Debug\Bowling.SpecFlow.vshost.exe.config" />
     <None Include="bin\Debug\Bowling.SpecFlow.vshost.exe.manifest" />
     <None Include="packages.config" />
