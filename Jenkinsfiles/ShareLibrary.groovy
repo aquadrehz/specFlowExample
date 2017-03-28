@@ -305,7 +305,7 @@ def buildTestSystem(globalVariable) {
     bat '"%Nuget%" restore ./specFlowExample.sln'
 
     // Run the ms build
-    bat '"%MSBuild%" /p:Configuration='+globalVariable.Build_Env+' specFlowExample/specFlowExample.sln'
+    bat '"%MSBuild%" /p:Configuration='+globalVariable.Build_Env+' ./specFlowExample.sln'
 }
 
 def resetReplayDatabase(globalVariable) {
