@@ -18,10 +18,10 @@ parallel (
 					ShareLibrary = load 'Jenkinsfiles/ShareLibrary.groovy'
 					ShareLibrary.killSoapUIProcess();
 					globalVariable = GlobalVariables;
-					globalVariable.Build_Env = 'UnitTest01';
+					globalVariable.Build_Env = 'UnitTest001';
 					globalVariable.WORKSPACE = pwd()
 					globalVariable.SoapUI_Port = "8099"
-					globalVariable.DB_Suffix = "UnitTest01"
+					globalVariable.DB_Suffix = "UnitTest001"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
 
@@ -48,10 +48,10 @@ parallel (
 					ShareLibrary = load 'Jenkinsfiles/ShareLibrary.groovy'
 					ShareLibrary.killSoapUIProcess();
 					globalVariable = GlobalVariables;
-					globalVariable.Build_Env = 'UnitTest02';
+					globalVariable.Build_Env = 'UnitTest002';
 					globalVariable.WORKSPACE = pwd()
 					globalVariable.SoapUI_Port = "8099"
-					globalVariable.DB_Suffix = "UnitTest02"
+					globalVariable.DB_Suffix = "UnitTest002"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
 
