@@ -2,6 +2,12 @@ parallel (
 		"Unit Test001": {
 			node {
 				ws("workspace/${JOB_NAME}") {
+					
+					  def x = "${env.WORKSPACE}";
+					   echo 'en '+x;
+					   echo 'psd '+pwd();
+					
+					
 					def globalVariable;
 					def GlobalVariables;
 					def ShareLibrary;
