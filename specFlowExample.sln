@@ -12,6 +12,7 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 		UnitTest001|Any CPU = UnitTest001|Any CPU
+		UnitTest002|Any CPU = UnitTest002|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AAAE1E1A-22CC-4637-8B73-D9077EE3756D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -20,12 +21,17 @@ Global
 		{AAAE1E1A-22CC-4637-8B73-D9077EE3756D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AAAE1E1A-22CC-4637-8B73-D9077EE3756D}.UnitTest001|Any CPU.ActiveCfg = UnitTest001|Any CPU
 		{AAAE1E1A-22CC-4637-8B73-D9077EE3756D}.UnitTest001|Any CPU.Build.0 = UnitTest001|Any CPU
+		{AAAE1E1A-22CC-4637-8B73-D9077EE3756D}.UnitTest002|Any CPU.ActiveCfg = UnitTest002|Any CPU
+		{AAAE1E1A-22CC-4637-8B73-D9077EE3756D}.UnitTest002|Any CPU.Build.0 = UnitTest002|Any CPU
 		{5FCAB781-046A-443F-BFA7-9C7D3D764806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5FCAB781-046A-443F-BFA7-9C7D3D764806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FCAB781-046A-443F-BFA7-9C7D3D764806}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{5FCAB781-046A-443F-BFA7-9C7D3D764806}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FCAB781-046A-443F-BFA7-9C7D3D764806}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5FCAB781-046A-443F-BFA7-9C7D3D764806}.UnitTest001|Any CPU.ActiveCfg = UnitTest001|Any CPU
 		{5FCAB781-046A-443F-BFA7-9C7D3D764806}.UnitTest001|Any CPU.Build.0 = UnitTest001|Any CPU
+		{5FCAB781-046A-443F-BFA7-9C7D3D764806}.UnitTest002|Any CPU.ActiveCfg = UnitTest002|Any CPU
+		{5FCAB781-046A-443F-BFA7-9C7D3D764806}.UnitTest002|Any CPU.Build.0 = UnitTest002|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
