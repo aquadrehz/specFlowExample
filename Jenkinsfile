@@ -1,4 +1,4 @@
-properties([parameters([string(defaultValue: '', description: 'Filter for scoping the testing both integration and system test.', name: 'Filter')]), pipelineTriggers([])])
+properties([parameters([string(defaultValue: 'gutter', description: 'Filter for scoping the testing both integration and system test.', name: 'Filter')]), pipelineTriggers([])])
 parallel (
 		"Unit Test001": {
 			node {
