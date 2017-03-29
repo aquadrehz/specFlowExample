@@ -24,13 +24,18 @@ parallel (
 					globalVariable.DB_Suffix = "UnitTest001"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
+					globalVariable.Filter = "${env.Filter}";
 
 					stage('Build') {
 						ShareLibrary.buildTestSystem(globalVariable);
 					}
 
+					stage('System Test') {
+						ShareLibrary.runUnitTest(globalVariable);
+					}
+					
 					stage('Unit Test') {
-						ShareLibrary.runUnitTestTestSystem(globalVariable);
+						ShareLibrary.runSystemTest(globalVariable);
 					}
 				}
 			}
@@ -54,13 +59,18 @@ parallel (
 					globalVariable.DB_Suffix = "UnitTest002"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
+					globalVariable.Filter = "";
 
 					stage('Build') {
 						ShareLibrary.buildTestSystem(globalVariable);
 					}
 
+					stage('System Test') {
+						ShareLibrary.runUnitTest(globalVariable);
+					}
+					
 					stage('Unit Test') {
-						ShareLibrary.runUnitTestTestSystem(globalVariable);
+						ShareLibrary.runSystemTest(globalVariable);
 					}
 				}
 			}
