@@ -1,4 +1,3 @@
-properties([parameters([string(defaultValue: 'gutter', description: 'Filter for scoping the testing both integration and system test.', name: 'Filter')]), pipelineTriggers([])])
 parallel (
 		"Unit Test001": {
 			node {
@@ -19,17 +18,17 @@ parallel (
 					globalVariable.DB_Suffix = "UnitTest001"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
-					globalVariable.Filter = "${env.Filter}";
+					globalVariable.Filter = "gutter"
 
-					stage('Build') {
+					stage('Build001') {
 						ShareLibrary.buildTestSystem(globalVariable);
 					}
 
-					stage('System Test') {
+					stage('System Test001') {
 						ShareLibrary.runUnitTest(globalVariable);
 					}
 					
-					stage('Unit Test') {
+					stage('Unit Test001') {
 						ShareLibrary.runSystemTest(globalVariable);
 					}
 				}
@@ -56,15 +55,15 @@ parallel (
 					globalVariable.IsSmokeTest = false;
 					globalVariable.Filter = "";
 
-					stage('Build') {
+					stage('Build002') {
 						ShareLibrary.buildTestSystem(globalVariable);
 					}
 
-					stage('System Test') {
+					stage('System Test002') {
 						ShareLibrary.runUnitTest(globalVariable);
 					}
 					
-					stage('Unit Test') {
+					stage('Unit Test002') {
 						ShareLibrary.runSystemTest(globalVariable);
 					}
 				}
