@@ -1,5 +1,5 @@
 parallel (
-		"Unit Test001": {
+		"Test001": {
 			node {
 				ws("workspace/${JOB_NAME}") {
 					def globalVariable;
@@ -34,7 +34,7 @@ parallel (
 				}
 			}
 		},
-		"Unit Test002": {
+		"Test002": {
 			node {				
 				ws("workspace/${JOB_NAME}") {
 					def globalVariable;
