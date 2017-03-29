@@ -1,3 +1,4 @@
+properties([parameters([string(defaultValue: '', description: 'Filter for scoping the testing both integration and system test.', name: 'Filter')]), pipelineTriggers([])])
 parallel (
 		"Unit Test001": {
 			node {
@@ -6,7 +7,6 @@ parallel (
 					def GlobalVariables;
 					def ShareLibrary;
 					def branchName = "${env.BRANCH_NAME}";
-					properties([parameters([string(defaultValue: '', description: 'Filter for scoping the testing both integration and system test.', name: 'Filter')]), pipelineTriggers([])])
 					checkout([$class: 'GitSCM', branches: [[name: branchName]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'CheckoutOption', timeout: 60], [$class: 'CloneOption', depth: 1, noTags: true, reference: '', shallow: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'aquadrehz', url: 'https://github.com/aquadrehz/specFlowExample.git']]])
 
 					GlobalVariables = load 'Jenkinsfiles/GlobalVariables.groovy'
