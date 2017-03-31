@@ -84,10 +84,10 @@ def runSystemTest(globalVariable) {
     {
         bat '"%Nunit%" Bowling.SpecFlow\\bin\\'+globalVariable.Build_Env+'\\Bowling.SpecFlow.dll '+
 		'/include=' +globalVariable.Filter ' '+
-		'/xml=nunit-spe-system-result.xml /noshadow /framework:net-4.5 /nothread'
+		'/xml=nunit-system-result.xml /noshadow /framework:net-4.5 /nothread'
     } catch(err) {};
 
-    step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '1', failureThreshold: '1', unstableNewThreshold: '1', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'NUnitJunitHudsonTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: 'nunit-spe-system-result.xml', skipNoTestFiles: false, stopProcessingIfError: false]]])
+    step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '1', failureThreshold: '1', unstableNewThreshold: '1', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'NUnitJunitHudsonTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: 'nunit-system-result.xml', skipNoTestFiles: false, stopProcessingIfError: false]]])
 }
 
 def runUnitTest(globalVariable) {
