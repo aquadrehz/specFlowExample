@@ -18,8 +18,8 @@ parallel (
 					globalVariable.DB_Suffix = "UnitTest001"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
-					globalVariable.Filter = "/include=gutter"
-
+					globalVariable.Filter = "/include=game+gutter"
+					// More detail: https://www.nunit.org/index.php?p=consoleCommandLine&r=2.5
 					stage('Build001') {
 						ShareLibrary.buildTestSystem(globalVariable);
 					}
