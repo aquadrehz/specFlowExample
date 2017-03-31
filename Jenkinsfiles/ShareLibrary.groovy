@@ -83,7 +83,7 @@ def runSystemTest(globalVariable) {
     try
     {
         bat '"%Nunit%" Bowling.SpecFlow\\bin\\'+globalVariable.Build_Env+'\\Bowling.SpecFlow.dll '+
-		'/include=' +globalVariable.Filter +' '+
+		globalVariable.Filter +' '+
 		'/xml=nunit-system-result.xml /noshadow /framework:net-4.5 /nothread'
     } catch(err) {
 		echo 'Error found in System test'
@@ -98,7 +98,7 @@ def runUnitTest(globalVariable) {
     // Run test with covertura + nunit
     bat '"%OpenCover%" -target:"%Nunit%" -targetargs:"' +
             'Bowling\\bin\\'+globalVariable.Build_Env+'\\Bowling.dll ' +
-			'/include=' +globalVariable.Filter +' '+
+			globalVariable.Filter +' '+
             '/xml=nunit-result.xml /noshadow /framework:net-4.5" -register -mergebyhash  -output:"outputCoverage.xml"'
 
     // Parse the unit test result
