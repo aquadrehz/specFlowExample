@@ -83,7 +83,7 @@ def runSystemTest(globalVariable) {
     try
     {
         bat '"%Nunit%" Bowling.SpecFlow\\bin\\'+globalVariable.Build_Env+'\\Bowling.SpecFlow.dll '+
-		'/include=' +globalVariable.Filter ' '+
+		'/include=' +globalVariable.Filter +' '+
 		'/xml=nunit-system-result.xml /noshadow /framework:net-4.5 /nothread'
     } catch(err) {};
 
