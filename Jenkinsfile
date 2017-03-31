@@ -1,3 +1,5 @@
+properties([[$class: 'ParametersDefinitionProperty', parameterDefinitions: [[$class: 'StringParameterDefinition', defaultValue: ' ', description: 'Test filter parameter for unit test integration test or system test \n Example: /include=<tagA>+<tabB> \nFor more detail: https://www.nunit.org/index.php?p=consoleCommandLine&r=2.5', name : 'Filter']]]])
+
 parallel (
 		"Test001": {
 			node {
@@ -18,8 +20,8 @@ parallel (
 					globalVariable.DB_Suffix = "UnitTest001"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
-					globalVariable.Filter = "/include=gutter"
-
+					globalVariable.Filter = "${env.Filter}" +" "
+					// 
 					stage('Build001') {
 						ShareLibrary.buildTestSystem(globalVariable);
 					}
