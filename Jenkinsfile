@@ -34,6 +34,7 @@ parallel (
 				}
 			}
 		},
+		/*
 		"Test002": {
 			node {				
 				ws("workspace/${JOB_NAME}") {
@@ -69,5 +70,6 @@ parallel (
 				}
 			}
 		}
+		*/
 )
 
