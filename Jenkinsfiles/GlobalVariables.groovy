@@ -13,6 +13,7 @@ class GlobalVariables implements Serializable {
     def DB_Suffix;
     def COMPUTERNAME;
     def IsSmokeTest;
+	def Filter;
 }
 
 return new GlobalVariables();
