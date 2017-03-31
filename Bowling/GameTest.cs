@@ -15,6 +15,7 @@ public class GameTest
     }
     
     [Test]
+    [Category("game")]
 
     public void RollSomePins_GetSomeScore()
     {
@@ -31,6 +32,7 @@ public class GameTest
     }
 
     [Test]
+    [Category("game")]
     [Category("gutter")]
     public void RollNonePins_GetNoneScore()
     {
@@ -48,6 +50,7 @@ public class GameTest
     }
 
     [Test]
+    [Category("game")]
     [Category("gutter")]
     public void RollAnotherPins_GetNoneScore()
     {
