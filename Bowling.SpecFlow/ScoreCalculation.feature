@@ -3,6 +3,7 @@
   As a player
   I want the system to calculate my total score
   
+@gutter  
 Scenario: Gutter game
   Given a new bowling game
   When all of my balls are landing in the gutter
@@ -40,3 +41,15 @@ Scenario: All spares
  Scenario: None
    Given do nothing
    Then none
+
+@gutter
+Scenario: Some gutter game 001
+   Given a new bowling game 
+   When I roll the following series: 1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,0,1
+   Then my total score should be 15
+
+@gutter
+Scenario: Some gutter game 002
+   Given a new bowling game 
+   When I roll the following series: 1,1,0,0,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1
+   Then my total score should be 15

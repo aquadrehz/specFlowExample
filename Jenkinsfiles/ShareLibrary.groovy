@@ -79,15 +79,33 @@ def checkOutAndSetupVariable(globalVariable) {
     replaceConfigFile(configFile, globalVariable)
 }
 
-def runUnitTestTestSystem(globalVariable) {
+def runSystemTest(globalVariable) {
+    try
+    {
+        bat '"%Nunit%" Bowling.SpecFlow\\bin\\'+globalVariable.Build_Env+'\\Bowling.SpecFlow.dll '+
+		globalVariable.Filter +' '+
+		'/xml=nunit-system-result.xml /noshadow /framework:net-4.5 /nothread'
+    } catch(err) {
+		echo 'Error found in System test'
+	};
+
+    step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '1', failureThreshold: '1', unstableNewThreshold: '1', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'NUnitJunitHudsonTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: 'nunit-system-result.xml', skipNoTestFiles: false, stopProcessingIfError: false]]])
+}
+
+def runUnitTest(globalVariable) {
+	try
+	{
     // Run test with covertura + nunit
     bat '"%OpenCover%" -target:"%Nunit%" -targetargs:"' +
-            'Bowling.SpecFlow\\bin\\'+globalVariable.Build_Env+'\\Bowling.SpecFlow.dll ' +
+            'Bowling\\bin\\'+globalVariable.Build_Env+'\\Bowling.dll ' +
+			globalVariable.Filter +' '+
             '/xml=nunit-result.xml /noshadow /framework:net-4.5" -register -mergebyhash  -output:"outputCoverage.xml"'
 
     // Parse the unit test result
     step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '1', failureThreshold: '1', unstableNewThreshold: '1', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'NUnitJunitHudsonTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: 'nunit-result.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])
-
+    } catch(err) {
+		echo 'Error found in Unit test'
+	};
     // Generate open cover report
     bat '"%ReportGenerator%"  -reports:outputCoverage.xml -targetDir:CodeCoverageHTML'
 
@@ -303,11 +321,9 @@ def buildSPSSystem(globalVariable) {
 def buildTestSystem(globalVariable) {
     // Restore package
     bat '"%Nuget%" restore ./specFlowExample.sln'
-	echo '>>>>>>>>>>>>>>>"%Nuget%" restore ./specFlowExample.sln'
 
     // Run the ms build
     bat '"%MSBuild%" /p:Configuration='+globalVariable.Build_Env+' specFlowExample.sln'
-	echo '>>>>>>>>>>>>>>>"%MSBuild%" /p:Configuration='+globalVariable.Build_Env+' specFlowExample.sln'
 }
 
 def resetReplayDatabase(globalVariable) {

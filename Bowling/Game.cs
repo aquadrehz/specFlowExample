@@ -1,6 +1,6 @@
 ﻿namespace Bowling
 {
-    public class Game
+    public class Game : IGame
     {
         private int[] rolls = new int[21];
         private int currentRoll;
