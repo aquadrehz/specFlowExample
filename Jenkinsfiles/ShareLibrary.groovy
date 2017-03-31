@@ -94,6 +94,7 @@ def runSystemTest(globalVariable) {
 
 def runUnitTest(globalVariable) {
 	try
+	{
     // Run test with covertura + nunit
     bat '"%OpenCover%" -target:"%Nunit%" -targetargs:"' +
             'Bowling\\bin\\'+globalVariable.Build_Env+'\\Bowling.dll ' +
