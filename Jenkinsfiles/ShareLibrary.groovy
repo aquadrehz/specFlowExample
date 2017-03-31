@@ -94,7 +94,7 @@ def runUnitTest(globalVariable) {
     // Run test with covertura + nunit
     bat '"%OpenCover%" -target:"%Nunit%" -targetargs:"' +
             'Bowling\\bin\\'+globalVariable.Build_Env+'\\Bowling.dll ' +
-			'/include:'globalVariable.Filter +' '+
+			'/include='globalVariable.Filter +' '+
             '/xml=nunit-result.xml /noshadow /framework:net-4.5" -register -mergebyhash  -output:"outputCoverage.xml"'
 
     // Parse the unit test result
