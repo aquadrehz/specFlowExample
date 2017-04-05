@@ -22,7 +22,7 @@ parallel (
 					globalVariable.DB_Suffix = "UnitTest001"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
-					if (filter!=null)
+					if (filter!="")
 					{
 						globalVariable.nunitFilter = ' /include=\"'+filter+'\"'
 						globalVariable.openCoverFilter = ' /include='+filter
