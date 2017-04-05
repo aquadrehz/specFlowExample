@@ -84,7 +84,7 @@ def runUnitTest(globalVariable) {
 	{
     // Run test with covertura + nunit
         bat '"%Nunit%" ' +
-                '"Bowling\\bin\\'+globalVariable.Build_Env+'\\Bowling.dll" "'+  globalVariable.Filter+ '" /xml=nunit-result.xml /noshadow /framework:net-4.5'
+                'Bowling\\bin\\'+globalVariable.Build_Env+'\\Bowling.dll "'+  globalVariable.nunitFilter+ '" /xml=nunit-result.xml /noshadow /framework:net-4.5'
 
     // Parse the unit test result
     step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '1', failureThreshold: '1', unstableNewThreshold: '1', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'NUnitJunitHudsonTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: 'nunit-result.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])
@@ -97,7 +97,7 @@ def runSystemTest(globalVariable) {
     try
     {
         bat '"%OpenCover%" -target:"%Nunit%" -targetargs:"' +
-                'Bowling.SpecFlow\\bin\\'+globalVariable.Build_Env+'\\Bowling.SpecFlow.dll' +" "+ globalVariable.Filter + ' /xml=nunit-result.xml /noshadow /framework:net-4.5" -register -mergebyhash  -output:"outputCoverage.xml'
+                'Bowling.SpecFlow\\bin\\'+globalVariable.Build_Env+'\\Bowling.SpecFlow.dll '+ globalVariable.openCoverFilter+ ' /xml=nunit-result.xml /noshadow /framework:net-4.5" -register -mergebyhash  -output:"outputCoverage.xml'
     } catch(err) {
         echo 'Error found in System test'
     };
