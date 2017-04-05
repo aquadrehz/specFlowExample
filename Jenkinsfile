@@ -26,11 +26,11 @@ parallel (
 						ShareLibrary.buildTestSystem(globalVariable);
 					}
 
-					stage('System Test001') {
+					stage('Unit Test001') {
 						ShareLibrary.runUnitTest(globalVariable);
 					}
 					
-					stage('Unit Test001') {
+					stage('System Test001') {
 						ShareLibrary.runSystemTest(globalVariable);
 					}
 				}
