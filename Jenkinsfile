@@ -20,7 +20,7 @@ parallel (
 					globalVariable.DB_Suffix = "UnitTest001"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
-					globalVariable.Filter = "${env.Filter}" +" "
+					globalVariable.Filter = "${env.Filter}"
 					// 
 					stage('Build001') {
 						ShareLibrary.buildTestSystem(globalVariable);
