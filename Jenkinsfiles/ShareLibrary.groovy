@@ -83,7 +83,7 @@ def runUnitTest(globalVariable) {
 	try
 	{
     // Run test with covertura + nunit
-        bat '"%Nunit%"' +
+        bat '"%Nunit%" ' +
                 'Bowling\\bin\\'+globalVariable.Build_Env+'\\Bowling.dll '+  globalVariable.Filter+ '/xml=nunit-result.xml /noshadow /framework:net-4.5'
 
     // Parse the unit test result
