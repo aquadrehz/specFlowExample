@@ -22,6 +22,9 @@ parallel (
 					globalVariable.DB_Suffix = "UnitTest001"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
+
+					globalVariable.nunitFilter = "";
+					ShareLibrary.runUnitTest = "";
 					if (filter!="")
 					{
 						globalVariable.nunitFilter = ' /include=\"'+filter+'\"'
