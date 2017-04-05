@@ -96,10 +96,10 @@ def runUnitTest(globalVariable) {
 	try
 	{
     // Run test with covertura + nunit
-    bat '"%OpenCover%" -target:"%Nunit%" -targetargs:"' +
-            'Bowling\\bin\\'+globalVariable.Build_Env+'\\Bowling.dll ' +
-			globalVariable.Filter +' '+
-            '/xml=nunit-result.xml /noshadow /framework:net-4.5" -register -mergebyhash  -output:"outputCoverage.xml"'
+        bat '"%Nunit%"' +
+                'Bowling\\bin\\'+globalVariable.Build_Env+'\\Bowling.dll ' +
+                globalVariable.Filter +' '+
+                '/xml=nunit-result.xml /noshadow /framework:net-4.5'
 
     // Parse the unit test result
     step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '1', failureThreshold: '1', unstableNewThreshold: '1', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'NUnitJunitHudsonTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: 'nunit-result.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])
