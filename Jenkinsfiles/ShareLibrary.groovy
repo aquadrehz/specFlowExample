@@ -105,12 +105,7 @@ def runUnitTest(globalVariable) {
     step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '1', failureThreshold: '1', unstableNewThreshold: '1', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'NUnitJunitHudsonTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: 'nunit-result.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])
     } catch(err) {
 		echo 'Error found in Unit test'
-	};
-    // Generate open cover report
-    bat '"%ReportGenerator%"  -reports:outputCoverage.xml -targetDir:CodeCoverageHTML'
-
-    // Publish code coverage report
-    publishHTML(target: [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'CodeCoverageHTML', reportFiles: 'index.htm', reportName: 'Code Coverage Report'])
+	}
 }
 
 def runIntegrationTestSPESystem(globalVariable) {

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="382aa216-612f-4c5a-8298-786dc9b4abee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Jenkinsfiles/ShareLibrary.groovy" afterPath="$PROJECT_DIR$/Jenkinsfiles/ShareLibrary.groovy" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="ShareLibrary.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Jenkinsfiles/ShareLibrary.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+            <state relative-caret-position="454">
+              <caret line="107" column="5" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -55,6 +54,7 @@
     <findStrings>
       <find>OpenCover</find>
       <find>targetargs</find>
+      <find>ReportGenerator</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -305,8 +305,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Jenkinsfiles/ShareLibrary.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+        <state relative-caret-position="454">
+          <caret line="107" column="5" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
