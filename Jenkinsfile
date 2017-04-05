@@ -1,4 +1,4 @@
-properties([[$class: 'ParametersDefinitionProperty', parameterDefinitions: [[$class: 'StringParameterDefinition', defaultValue: ' ', description: 'Test filter parameter for unit test integration test or system test \n Example: /include=<tagA>+<tabB> \nFor more detail: https://www.nunit.org/index.php?p=consoleCommandLine&r=2.5', name : 'Filter']]]])
+properties([[$class: 'ParametersDefinitionProperty', parameterDefinitions: [[$class: 'StringParameterDefinition', defaultValue: ' ', description: 'Test filter parameter for unit test integration test or system test. Input format is /include=<input> \n Example: <tagA>+<tabB> \nFor more detail: https://www.nunit.org/index.php?p=consoleCommandLine&r=2.5', name : 'Filter']]]])
 
 parallel (
 		"Test001": {
@@ -20,10 +20,14 @@ parallel (
 					globalVariable.DB_Suffix = "UnitTest001"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
-					globalVariable.nunitFilter = ' /include=\"'+"${env.Filter}"+'\"'
-					globalVariable.openCoverFilter = ' /include='+"${env.Filter}"
-					globalVariable.nunitFilter = globalVariable.nunitFilter.trim()
-					globalVariable.openCoverFilter = globalVariable.openCoverFilter.trim()
+					if (${env.Filter}!=null)
+					{
+						globalVariable.nunitFilter = ' /include=\"'+"${env.Filter}"+'\"'
+						globalVariable.openCoverFilter = ' /include='+"${env.Filter}"
+						globalVariable.nunitFilter = globalVariable.nunitFilter.trim()
+						globalVariable.openCoverFilter = globalVariable.openCoverFilter.trim()
+					}
+
 					// 
 					stage('Build001') {
 						ShareLibrary.buildTestSystem(globalVariable);
