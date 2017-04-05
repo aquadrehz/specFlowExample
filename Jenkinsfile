@@ -8,6 +8,8 @@ parallel (
 					def GlobalVariables;
 					def ShareLibrary;
 					def branchName = "${env.BRANCH_NAME}";
+					def filter = "${env.Filter}"
+					filter = filter.trim();
 					checkout([$class: 'GitSCM', branches: [[name: branchName]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'CheckoutOption', timeout: 60], [$class: 'CloneOption', depth: 1, noTags: true, reference: '', shallow: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'aquadrehz', url: 'https://github.com/aquadrehz/specFlowExample.git']]])
 
 					GlobalVariables = load 'Jenkinsfiles/GlobalVariables.groovy'
@@ -20,12 +22,10 @@ parallel (
 					globalVariable.DB_Suffix = "UnitTest001"
 					globalVariable.COMPUTERNAME = ShareLibrary.mapHostname("${NODE_NAME}")
 					globalVariable.IsSmokeTest = false;
-					if ("${env.Filter}"!=null)
+					if (filter!=null)
 					{
-						globalVariable.nunitFilter = ' /include=\"'+"${env.Filter}"+'\"'
-						globalVariable.openCoverFilter = ' /include='+"${env.Filter}"
-						globalVariable.nunitFilter = globalVariable.nunitFilter.trim()
-						globalVariable.openCoverFilter = globalVariable.openCoverFilter.trim()
+						globalVariable.nunitFilter = ' /include=\"'+filter+'\"'
+						globalVariable.openCoverFilter = ' /include='+filter
 					}
 
 					// 
