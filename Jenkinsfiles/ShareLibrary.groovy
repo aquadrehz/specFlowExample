@@ -97,7 +97,7 @@ def runSystemTest(globalVariable) {
     try
     {
         bat '"%OpenCover%" -target:"%Nunit%" -targetargs:"' +
-                'Bowling.SpecFlow\\bin\\'+globalVariable.Build_Env+'\\Bowling.SpecFlow.dll  '+ globalVariable.Filter + ' /xml=nunit-result.xml /noshadow /framework:net-4.5" -register -mergebyhash  -output:"outputCoverage.xml'
+                'Bowling.SpecFlow\\bin\\'+globalVariable.Build_Env+'\\Bowling.SpecFlow.dll' +" "+ globalVariable.Filter + ' /xml=nunit-result.xml /noshadow /framework:net-4.5" -register -mergebyhash  -output:"outputCoverage.xml'
     } catch(err) {
         echo 'Error found in System test'
     };
