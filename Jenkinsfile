@@ -24,7 +24,7 @@ parallel (
 					globalVariable.IsSmokeTest = false;
 
 					globalVariable.nunitFilter = "";
-					ShareLibrary.runUnitTest = "";
+					globalVariable.openCoverFilter = "";
 					if (filter!="")
 					{
 						globalVariable.nunitFilter = ' /include=\"'+filter+'\"'
