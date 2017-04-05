@@ -83,7 +83,6 @@ def runUnitTest(globalVariable) {
 	try
 	{
     // Run test with covertura + nunit
-        echo globalVariable.nunitFilter
         bat '"%Nunit%" ' +
                 'Bowling\\bin\\'+globalVariable.Build_Env+'\\Bowling.dll '+  globalVariable.nunitFilter+ ' /xml=nunit-result.xml /noshadow /framework:net-4.5'
 
@@ -97,7 +96,6 @@ def runUnitTest(globalVariable) {
 def runSystemTest(globalVariable) {
     try
     {
-        echo globalVariable.openCoverFilter
         bat '"%OpenCover%" -target:"%Nunit%" -targetargs:"' +
                 'Bowling.SpecFlow\\bin\\'+globalVariable.Build_Env+'\\Bowling.SpecFlow.dll '+ globalVariable.openCoverFilter+ ' /xml=nunit-system-result.xml /noshadow /framework:net-4.5" -register -mergebyhash  -output:"outputCoverage.xml'
     } catch(err) {

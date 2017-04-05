@@ -22,6 +22,8 @@ parallel (
 					globalVariable.IsSmokeTest = false;
 					globalVariable.nunitFilter = ' /include=\"'+"${env.Filter}"+'\"'
 					globalVariable.openCoverFilter = ' /include='+"${env.Filter}"
+					globalVariable.nunitFilter = globalVariable.nunitFilter.trim()
+					globalVariable.openCoverFilter = globalVariable.openCoverFilter.trim()
 					// 
 					stage('Build001') {
 						ShareLibrary.buildTestSystem(globalVariable);
